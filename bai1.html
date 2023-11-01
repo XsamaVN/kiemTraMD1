@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Cho danh sách các điểm thi ở trong một mảng
+Hãy viết hàm tìm được điểm thi cao thứ 3 với đầu vào là một
+mảng điểm. (không dùng hàm có sẵn để sắp xếp). -->
+<script>
+  let diem = [95, 88, 72, 97, 86, 99, 90, 78,100,98];
+  let diemCaoThuBa = timDiemCaoThuBa(diem);
+  function timDiemCaoThuBa(diem) {
+    if (diem.length < 3) {
+      return "Không có điểm thi cao thứ 3.";
+    }
+
+    let diemCaoNhat = diem[0];
+    let diemCaoThuHai = diem[1];
+    let diemCaoThuBa =  diem[2];
+
+    for (let i = 0; i < diem.length; i++) {
+      if (diem[i] > diemCaoNhat) {
+        diemCaoThuBa = diemCaoThuHai;
+        diemCaoThuHai = diemCaoNhat;
+        diemCaoNhat = diem[i];
+      } else if (diem[i] > diemCaoThuHai) {
+        diemCaoThuBa = diemCaoThuHai;
+        diemCaoThuHai = diem[i];
+      } else if (diem[i] > diemCaoThuBa) {
+        diemCaoThuBa = diem[i];
+      }
+    }
+
+    return diemCaoThuBa;
+  }
+
+
+  console.log("Điểm thi cao thứ 3 là: " + diemCaoThuBa);
+
+</script>
+
+</body>
+</html>
